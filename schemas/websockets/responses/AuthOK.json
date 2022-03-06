@@ -1,0 +1,24 @@
+{
+	"id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/AuthOK.json",
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"description": "https://developers.home-assistant.io/docs/api/websocket/#authentication-phase",
+	"type": "object",
+	"title": "AuthOKMsg",
+	"properties": {
+		"type": {
+			"description": "Type key of the message.",
+			"type": "string",
+			"const": "auth_ok",
+			"default": "auth_ok"
+		},
+		"ha_version": {
+			"description": "The version of Home Assistant.",
+			"type": "string"
+		}
+	},
+	"required": [
+		"ha_version",
+		"type"
+	],
+	"additionalProperties": false
+}
