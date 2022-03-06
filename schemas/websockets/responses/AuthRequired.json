@@ -1,0 +1,21 @@
+{
+	"id": "http://json-schema.org/AuthRequired",
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"description": "https://developers.home-assistant.io/docs/api/websocket/#authentication-phase",
+	"type": "object",
+	"title": "AuthRequired",
+	"properties": {
+		"type": {
+			"type": "string",
+			"default": "auth"
+		},
+		"HAVersion": {
+			"description": "The version of Home Assistant.",
+			"type": "string"
+		}
+	},
+	"required": [
+		"access_token",
+		"type"
+	]
+}
