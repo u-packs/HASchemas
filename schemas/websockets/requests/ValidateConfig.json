@@ -1,0 +1,34 @@
+{
+	"id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/ValidateConfig.json",
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"description": "https://developers.home-assistant.io/docs/api/websocket/#validate-config",
+	"type": "object",
+	"title": "ValidateConfigMsg",
+	"properties": {
+		"type": {
+			"description": "Type key of the message.",
+			"type": "string",
+			"const": "validate_config",
+			"default": "validate_config"
+		},
+		"id": {
+			"description": "The ID of the response will point at the original ID of this message.",
+			"type": "integer",
+			"minimum": 0
+		},
+		"trigger": {
+			"type": "object"
+		},
+		"condition": {
+			"type": "object"
+		},
+		"action": {
+			"type": "object"
+		}
+	},
+	"required": [
+		"id",
+		"type"
+	],
+	"additionalProperties": false
+}
