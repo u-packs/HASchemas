@@ -6,6 +6,7 @@
 	"title": "AuthRequiredMsg",
 	"properties": {
 		"type": {
+			"description": "Type key of the message.",
 			"type": "string",
 			"const": "auth_required",
 			"default": "auth_required"
