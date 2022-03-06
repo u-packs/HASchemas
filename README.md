@@ -1,0 +1,2 @@
+# HASchemas
+Home Assistant Schemas
