@@ -1,0 +1,30 @@
+{
+	"id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/Event.json",
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"description": "https://developers.home-assistant.io/docs/api/websocket/#pings-and-pongs",
+	"type": "object",
+	"title": "EventMsg",
+	"properties": {
+		"type": {
+			"description": "Type key of the message.",
+			"type": "string",
+			"const": "event",
+			"default": "event"
+		},
+		"id": {
+			"description": "The ID of the response will point at the original ID of this message.",
+			"type": "integer",
+			"minimum": 0
+		},
+		"event": {
+			"description": "The data of the event.",
+			"type": "object"
+		}
+	},
+	"required": [
+		"id",
+		"type",
+		"event"
+	],
+	"additionalProperties": false
+}
