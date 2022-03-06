@@ -9,13 +9,13 @@
 			"type": "string",
 			"default": "auth"
 		},
-		"HAVersion": {
+		"ha_version": {
 			"description": "The version of Home Assistant.",
 			"type": "string"
 		}
 	},
 	"required": [
-		"access_token",
+		"ha_version",
 		"type"
 	]
 }
