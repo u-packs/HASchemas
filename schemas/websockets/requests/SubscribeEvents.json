@@ -1,0 +1,29 @@
+{
+	"id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/SubscribeEvents.json",
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"description": "https://developers.home-assistant.io/docs/api/websocket/#subscribe-to-events",
+	"type": "object",
+	"title": "SubscribeEventsMsg",
+	"properties": {
+		"type": {
+			"description": "Type key of the message.",
+			"type": "string",
+			"const": "subscribe_events",
+			"default": "subscribe_events"
+		},
+		"id": {
+			"description": "The ID of the response will point at the original ID of this message.",
+			"type": "integer",
+			"minimum": 0
+		},
+		"event_type": {
+			"description": "You can either listen to all events or to a specific event type.",
+			"type": "string"
+		}
+	},
+	"required": [
+		"id",
+		"type"
+	],
+	"additionalProperties": false
+}
