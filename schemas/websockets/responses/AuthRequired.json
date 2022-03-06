@@ -3,7 +3,7 @@
 	"$schema": "http://json-schema.org/draft-06/schema#",
 	"description": "https://developers.home-assistant.io/docs/api/websocket/#authentication-phase",
 	"type": "object",
-	"title": "AuthRequired",
+	"title": "AuthRequiredMsg",
 	"properties": {
 		"type": {
 			"type": "string",
