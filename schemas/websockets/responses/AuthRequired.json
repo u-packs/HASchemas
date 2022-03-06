@@ -19,5 +19,6 @@
 	"required": [
 		"ha_version",
 		"type"
-	]
+	],
+	"additionalProperties": false
 }
