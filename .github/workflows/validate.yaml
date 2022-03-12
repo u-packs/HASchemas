@@ -16,4 +16,4 @@ jobs:
           node-version: '16'
       - run: npm install -g ajv-formats ajv-cli
         name: Install ajv
-      - run: ajv compile -s "../schemas/**/*.json" --strict=true -c ajv-formats
+      - run: ajv compile -s "schemas/**/*.json" --strict=true -c ajv-formats
