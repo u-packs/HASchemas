@@ -1,7 +1,7 @@
 {
 	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/Event.json",
 	"$schema": "http://json-schema.org/draft-06/schema#",
-	"description": "https://developers.home-assistant.io/docs/api/websocket/#pings-and-pongs",
+	"description": "https://developers.home-assistant.io/docs/api/websocket#fire-an-event",
 	"type": "object",
 	"title": "EventMsg",
 	"properties": {
@@ -17,8 +17,14 @@
 			"minimum": 0
 		},
 		"event": {
-			"description": "The data of the event.",
-			"type": "object"
+			"anyOf": [
+				{
+					"$ref": "#/definitions/eventData"
+				},
+				{
+					"$ref": "#/definitions/triggerData"
+				}
+			]
 		}
 	},
 	"required": [
@@ -26,5 +32,184 @@
 		"type",
 		"event"
 	],
-	"additionalProperties": false
+	"additionalProperties": false,
+	"definitions": {
+		"context": {
+			"description": "The context of the event.",
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"id": {
+					"description": "The ID of the event.",
+					"type": "string"
+				},
+				"parent_id": {
+					"description": "The ID of the parent event.",
+					"type": "string"
+				},
+				"user_id": {
+					"description": "The ID of the user that triggered the event.",
+					"type": "string"
+				}
+			}
+		},
+		"stateData": {
+			"description": "The state of the event.",
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"entity_id": {
+					"description": "The entity_id of the event.",
+					"type": "string"
+				},
+				"last_changed": {
+					"description": "The time the event was last changed.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"last_updated": {
+					"description": "The time the event was last updated.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"state": {
+					"description": "The state of the event.",
+					"type": "string"
+				},
+				"attributes": {
+					"description": "The attributes of the event.",
+					"type": "object"
+				},
+				"context": {
+					"description": "The context of the event.",
+					"$ref": "#/definitions/context"
+				}
+			}
+		},
+		"eventData": {
+			"description": "The data of the event.",
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"event_type",
+				"time_fired",
+				"origin",
+				"context",
+				"data"
+			],
+			"properties": {
+				"event_type": {
+					"description": "The type of the event.",
+					"type": "string"
+				},
+				"time_fired": {
+					"description": "The time the event was fired.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"origin": {
+					"description": "The origin of the event.",
+					"type": "string"
+				},
+				"context": {
+					"description": "The context of the event.",
+					"$ref": "#/definitions/context"
+				},
+				"data": {
+					"description": "The data of the event.",
+					"type": "object",
+					"additionalProperties": false,
+					"required": [
+						"entity_id",
+						"new_state",
+						"old_state"
+					],
+					"properties": {
+						"entity_id": {
+							"description": "The entity_id of the event.",
+							"type": "string"
+						},
+						"new_state": {
+							"$ref": "#/definitions/stateData"
+						},
+						"old_state": {
+							"$ref": "#/definitions/stateData"
+						}
+					}
+				}
+			}
+		},
+		"triggerData": {
+			"description": "The data of the event.",
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"variables",
+				"context"
+			],
+			"properties": {
+				"variables": {
+					"description": "The variables of the event.",
+					"type": "object",
+					"additionalProperties": false,
+					"required": [
+						"trigger"
+					],
+					"properties": {
+						"trigger": {
+							"description": "The trigger of the event.",
+							"type": "object",
+							"additionalProperties": false,
+							"required": [
+								"platform",
+								"entity_id",
+								"id",
+								"idx",
+								"for",
+								"description",
+								"attribute",
+								"from_state",
+								"to_state"
+							],
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"idx": {
+									"type": "string"
+								},
+								"platform": {
+									"description": "The platform of the event.",
+									"type": "string"
+								},
+								"entity_id": {
+									"description": "The entity_id of the event.",
+									"type": "string"
+								},
+								"for": {
+									"type": "string"
+								},
+								"from_state": {
+									"$ref": "#/definitions/stateData"
+								},
+								"to_state": {
+									"$ref": "#/definitions/stateData"
+								},
+								"attribute": {
+									"type": "string"
+								},
+								"description": {
+									"description": "The description of the event.",
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"context": {
+					"$ref": "#/definitions/context"
+				}
+			}
+		}
+	}
 }
