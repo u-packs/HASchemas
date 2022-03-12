@@ -1,5 +1,5 @@
 {
-	"id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/GetServices.json",
+	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/GetServices.json",
 	"$schema": "http://json-schema.org/draft-06/schema#",
 	"description": "https://developers.home-assistant.io/docs/api/websocket/#fetching-services",
 	"type": "object",
