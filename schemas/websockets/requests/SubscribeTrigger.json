@@ -1,6 +1,6 @@
 {
 	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/SubscribeTrigger.json",
-	"$schema": "http://json-schema.org/draft-06/schema#",
+	"$schema": "http://json-schema.org/draft-07/schema#",
 	"description": "https://developers.home-assistant.io/docs/api/websocket/#subscribe-to-trigger",
 	"type": "object",
 	"title": "SubscribeTriggerMsg",
