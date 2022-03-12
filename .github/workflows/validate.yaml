@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - run: npm install -g ajv-formats ajv-cli
+        name: Install ajv
+      - run: ajv compile -s "../schemas/**/*.json" --strict=true -c ajv-formats
