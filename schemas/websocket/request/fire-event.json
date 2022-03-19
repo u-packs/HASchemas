@@ -1,15 +1,15 @@
 {
-	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/SubscribeEvents.json",
+	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/request/fire-event.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"description": "https://developers.home-assistant.io/docs/api/websocket/#subscribe-to-events",
+	"description": "https://developers.home-assistant.io/docs/api/websocket/#fire-an-event",
 	"type": "object",
-	"title": "SubscribeEventsMsg",
+	"title": "FireEventMsg",
 	"properties": {
 		"type": {
 			"description": "Type key of the message.",
 			"type": "string",
-			"const": "subscribe_events",
-			"default": "subscribe_events"
+			"const": "fire_event",
+			"default": "fire_event"
 		},
 		"id": {
 			"description": "The ID of the response will point at the original ID of this message.",
@@ -19,11 +19,16 @@
 		"event_type": {
 			"description": "You can either listen to all events or to a specific event type.",
 			"type": "string"
+		},
+		"event_data": {
+			"description": "The data to send with the event.",
+			"type": "object"
 		}
 	},
 	"required": [
 		"id",
-		"type"
+		"type",
+		"event_type"
 	],
 	"additionalProperties": false
 }

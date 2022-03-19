@@ -1,5 +1,5 @@
 {
-	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/UnsubscribeEvents.json",
+	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/request/unsubcribe-events.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"description": "https://developers.home-assistant.io/docs/api/websocket/#unsubscribing-from-events",
 	"type": "object",

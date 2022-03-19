@@ -1,15 +1,15 @@
 {
-	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/GetPanels.json",
+	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/request/ping.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"description": "https://developers.home-assistant.io/docs/api/websocket/#fetching-panels",
+	"description": "https://developers.home-assistant.io/docs/api/websocket/#pings-and-pongs",
 	"type": "object",
-	"title": "GetPanelsMsg",
+	"title": "PingMsg",
 	"properties": {
 		"type": {
 			"description": "Type key of the message.",
 			"type": "string",
-			"const": "get_panels",
-			"default": "get_panels"
+			"const": "ping",
+			"default": "ping"
 		},
 		"id": {
 			"description": "The ID of the response will point at the original ID of this message.",

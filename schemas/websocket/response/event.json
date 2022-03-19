@@ -1,5 +1,5 @@
 {
-	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/Event.json",
+	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/response/event.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"description": "https://developers.home-assistant.io/docs/api/websocket#fire-an-event",
 	"type": "object",
@@ -34,58 +34,6 @@
 	],
 	"additionalProperties": false,
 	"definitions": {
-		"context": {
-			"description": "The context of the event.",
-			"type": "object",
-			"additionalProperties": false,
-			"properties": {
-				"id": {
-					"description": "The ID of the event.",
-					"type": "string"
-				},
-				"parent_id": {
-					"description": "The ID of the parent event.",
-					"type": "string"
-				},
-				"user_id": {
-					"description": "The ID of the user that triggered the event.",
-					"type": "string"
-				}
-			}
-		},
-		"stateData": {
-			"description": "The state of the event.",
-			"type": "object",
-			"additionalProperties": false,
-			"properties": {
-				"entity_id": {
-					"description": "The entity_id of the event.",
-					"type": "string"
-				},
-				"last_changed": {
-					"description": "The time the event was last changed.",
-					"type": "string",
-					"format": "date-time"
-				},
-				"last_updated": {
-					"description": "The time the event was last updated.",
-					"type": "string",
-					"format": "date-time"
-				},
-				"state": {
-					"description": "The state of the event.",
-					"type": "string"
-				},
-				"attributes": {
-					"description": "The attributes of the event.",
-					"type": "object"
-				},
-				"context": {
-					"description": "The context of the event.",
-					"$ref": "#/definitions/context"
-				}
-			}
-		},
 		"eventData": {
 			"description": "The data of the event.",
 			"type": "object",
@@ -113,7 +61,7 @@
 				},
 				"context": {
 					"description": "The context of the event.",
-					"$ref": "#/definitions/context"
+					"$ref": "../../rest/state.json#/definitions/context"
 				},
 				"data": {
 					"description": "The data of the event.",
@@ -130,10 +78,10 @@
 							"type": "string"
 						},
 						"new_state": {
-							"$ref": "#/definitions/stateData"
+							"$ref": "../../rest/state.json#/definitions/stateData"
 						},
 						"old_state": {
-							"$ref": "#/definitions/stateData"
+							"$ref": "../../rest/state.json#/definitions/stateData"
 						}
 					}
 				}
@@ -190,10 +138,10 @@
 									"type": "string"
 								},
 								"from_state": {
-									"$ref": "#/definitions/stateData"
+									"$ref": "../../rest/state.json#/definitions/stateData"
 								},
 								"to_state": {
-									"$ref": "#/definitions/stateData"
+									"$ref": "../../rest/state.json#/definitions/stateData"
 								},
 								"attribute": {
 									"type": "string"
@@ -207,7 +155,7 @@
 					}
 				},
 				"context": {
-					"$ref": "#/definitions/context"
+					"$ref": "../../rest/state.json#/definitions/context"
 				}
 			}
 		}

@@ -1,5 +1,5 @@
 {
-	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websockets/requests/ValidateConfig.json",
+	"$id": "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/request/validate-config.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"description": "https://developers.home-assistant.io/docs/api/websocket/#validate-config",
 	"type": "object",
