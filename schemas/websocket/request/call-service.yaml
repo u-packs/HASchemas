@@ -1,0 +1,50 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/request/call-service.json
+$schema: http://json-schema.org/draft-07/schema#
+description: https://developers.home-assistant.io/docs/api/websocket/#calling-a-service
+type: object
+title: CallServiceMsg
+properties:
+  type:
+    description: Type key of the message.
+    type: string
+    const: call_service
+    default: call_service
+  id:
+    description: The ID of the response will point at the original ID of this message.
+    type: integer
+    minimum: 0
+  domain:
+    description: Domain of the service to call.
+    type: string
+  service:
+    description: Name of the service to call.
+    type: string
+  service_data:
+    description: The data to send with the service call.
+    type: object
+  target:
+    type: object
+    description: Instead of targeting an entity, you can also target an area or device. Or a combination of these.
+    properties:
+      area_id:
+        description: The area_id to call the service on.
+        type: array
+        items:
+          type: string
+      device_id:
+        description: The device_id to call the service on.
+        type: array
+        items:
+          type: string
+      entity_id:
+        description: The entity_id to call the service on.
+        type: array
+        items:
+          type: string
+    additionalProperties: false
+required:
+  - id
+  - type
+  - domain
+  - service
+additionalProperties: false

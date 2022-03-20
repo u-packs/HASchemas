@@ -1,0 +1,18 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/response/auth-invalid.json
+$schema: http://json-schema.org/draft-07/schema#
+description: https://developers.home-assistant.io/docs/api/websocket/#authentication-phase
+type: object
+title: AuthInvalidMsg
+properties:
+  type:
+    description: Type key of the message.
+    type: string
+    const: auth_invalid
+    default: auth_invalid
+  message:
+    description: The reason why the authentication failed.
+    type: string
+required:
+  - message
+  - type
+additionalProperties: false

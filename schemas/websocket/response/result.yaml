@@ -1,0 +1,42 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/response/result.json
+$schema: http://json-schema.org/draft-07/schema#
+description: https://developers.home-assistant.io/docs/api/websocket/#command-phase
+type: object
+title: ResultMsg
+properties:
+  type:
+    description: Type key of the message.
+    type: string
+    const: result
+    default: result
+  id:
+    description: The ID of the response will point at the original ID of this message.
+    type: integer
+    minimum: 0
+  success:
+    description: Whether the command was successful or not.
+    type: boolean
+  result:
+    description: The result of the command.
+    anyOf:
+      - type: object
+      - type: array
+  error:
+    description: The error message of the command.
+    type: object
+    properties:
+      code:
+        description: The error code.
+        type: string
+      message:
+        description: The error message.
+        type: string
+    required:
+      - code
+      - message
+    additionalProperties: false
+required:
+  - id
+  - type
+  - success
+additionalProperties: false

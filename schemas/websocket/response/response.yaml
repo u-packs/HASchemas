@@ -1,0 +1,12 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/response/response.json
+$schema: http://json-schema.org/draft-07/schema#
+description: https://developers.home-assistant.io/docs/api/websocket
+type: object
+title: ResponseMsg
+properties:
+  type:
+    description: Type key of the message.
+    type: string
+required:
+  - type
+additionalProperties: true

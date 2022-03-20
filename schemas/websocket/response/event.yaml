@@ -1,0 +1,118 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/response/event.json
+$schema: http://json-schema.org/draft-07/schema#
+description: https://developers.home-assistant.io/docs/api/websocket#fire-an-event
+type: object
+title: EventMsg
+properties:
+  type:
+    description: Type key of the message.
+    type: string
+    const: event
+    default: event
+  id:
+    description: The ID of the response will point at the original ID of this message.
+    type: integer
+    minimum: 0
+  event:
+    anyOf:
+      - $ref: '#/definitions/eventData'
+      - $ref: '#/definitions/triggerData'
+required:
+  - id
+  - type
+  - event
+additionalProperties: false
+definitions:
+  eventData:
+    description: The data of the event.
+    type: object
+    additionalProperties: false
+    required:
+      - event_type
+      - time_fired
+      - origin
+      - context
+      - data
+    properties:
+      event_type:
+        description: The type of the event.
+        type: string
+      time_fired:
+        description: The time the event was fired.
+        type: string
+        format: date-time
+      origin:
+        description: The origin of the event.
+        type: string
+      context:
+        description: The context of the event.
+        $ref: ../../rest/state.json#/definitions/context
+      data:
+        description: The data of the event.
+        type: object
+        additionalProperties: false
+        required:
+          - entity_id
+          - new_state
+          - old_state
+        properties:
+          entity_id:
+            description: The entity_id of the event.
+            type: string
+          new_state:
+            $ref: ../../rest/state.json#/definitions/stateData
+          old_state:
+            $ref: ../../rest/state.json#/definitions/stateData
+  triggerData:
+    description: The data of the event.
+    type: object
+    additionalProperties: false
+    required:
+      - variables
+      - context
+    properties:
+      variables:
+        description: The variables of the event.
+        type: object
+        additionalProperties: false
+        required:
+          - trigger
+        properties:
+          trigger:
+            description: The trigger of the event.
+            type: object
+            additionalProperties: false
+            required:
+              - platform
+              - entity_id
+              - id
+              - idx
+              - for
+              - description
+              - attribute
+              - from_state
+              - to_state
+            properties:
+              id:
+                type: string
+              idx:
+                type: string
+              platform:
+                description: The platform of the event.
+                type: string
+              entity_id:
+                description: The entity_id of the event.
+                type: string
+              for:
+                type: string
+              from_state:
+                $ref: ../../rest/state.json#/definitions/stateData
+              to_state:
+                $ref: ../../rest/state.json#/definitions/stateData
+              attribute:
+                type: string
+              description:
+                description: The description of the event.
+                type: string
+      context:
+        $ref: ../../rest/state.json#/definitions/context
