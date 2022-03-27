@@ -1,4 +1,4 @@
-$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/request/get-panels.json
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/request/get-panels.yaml
 $schema: http://json-schema.org/draft-07/schema#
 description: https://developers.home-assistant.io/docs/api/websocket/#fetching-panels
 type: object

@@ -1,4 +1,4 @@
-$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/response/event.json
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/response/event.yaml
 $schema: http://json-schema.org/draft-07/schema#
 description: https://developers.home-assistant.io/docs/api/websocket#fire-an-event
 type: object
@@ -15,8 +15,8 @@ properties:
     minimum: 0
   event:
     anyOf:
-      - $ref: '#/definitions/eventData'
-      - $ref: '#/definitions/triggerData'
+      - $ref: "#/definitions/eventData"
+      - $ref: "#/definitions/triggerData"
 required:
   - id
   - type
@@ -46,7 +46,7 @@ definitions:
         type: string
       context:
         description: The context of the event.
-        $ref: ../../rest/state.json#/definitions/context
+        $ref: ../../rest/state.yaml#/definitions/context
       data:
         description: The data of the event.
         type: object
@@ -60,9 +60,9 @@ definitions:
             description: The entity_id of the event.
             type: string
           new_state:
-            $ref: ../../rest/state.json#/definitions/stateData
+            $ref: ../../rest/state.yaml#/definitions/stateData
           old_state:
-            $ref: ../../rest/state.json#/definitions/stateData
+            $ref: ../../rest/state.yaml#/definitions/stateData
   triggerData:
     description: The data of the event.
     type: object
@@ -106,13 +106,13 @@ definitions:
               for:
                 type: string
               from_state:
-                $ref: ../../rest/state.json#/definitions/stateData
+                $ref: ../../rest/state.yaml#/definitions/stateData
               to_state:
-                $ref: ../../rest/state.json#/definitions/stateData
+                $ref: ../../rest/state.yaml#/definitions/stateData
               attribute:
                 type: string
               description:
                 description: The description of the event.
                 type: string
       context:
-        $ref: ../../rest/state.json#/definitions/context
+        $ref: ../../rest/state.yaml#/definitions/context
