@@ -1,0 +1,31 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml
+$schema: http://json-schema.org/draft-07/schema#
+title: State Data
+description: The state of the event.
+type: object
+additionalProperties: false
+required:
+  - entity_id
+  - last_changed
+  - state
+properties:
+  entity_id:
+    description: The entity_id of the event.
+    type: string
+  last_changed:
+    description: The time the event was last changed.
+    type: string
+    format: date-time
+  last_updated:
+    description: The time the event was last updated.
+    type: string
+    format: date-time
+  state:
+    description: The state of the event.
+    type: string
+  attributes:
+    description: The attributes of the event.
+    type: object
+  context:
+    description: The context of the event.
+    $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"

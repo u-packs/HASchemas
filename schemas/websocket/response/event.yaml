@@ -46,7 +46,7 @@ definitions:
         type: string
       context:
         description: The context of the event.
-        $ref: ../../rest/state.yaml#/definitions/context
+        $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"
       data:
         description: The data of the event.
         type: object
@@ -60,9 +60,9 @@ definitions:
             description: The entity_id of the event.
             type: string
           new_state:
-            $ref: ../../rest/state.yaml#/definitions/stateData
+            $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
           old_state:
-            $ref: ../../rest/state.yaml#/definitions/stateData
+            $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
   triggerData:
     description: The data of the event.
     type: object
@@ -106,13 +106,13 @@ definitions:
               for:
                 type: string
               from_state:
-                $ref: ../../rest/state.yaml#/definitions/stateData
+                $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
               to_state:
-                $ref: ../../rest/state.yaml#/definitions/stateData
+                $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
               attribute:
                 type: string
               description:
                 description: The description of the event.
                 type: string
       context:
-        $ref: ../../rest/state.yaml#/definitions/context
+        $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"
