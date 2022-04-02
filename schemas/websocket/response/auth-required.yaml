@@ -5,8 +5,7 @@ type: object
 title: AuthRequiredMsg
 properties:
   type:
-    description: Type key of the message.
-    type: string
+    $ref: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/type.yaml
     const: auth_required
     default: auth_required
   ha_version:

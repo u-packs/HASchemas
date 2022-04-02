@@ -5,8 +5,7 @@ type: object
 title: GetConfigMsg
 properties:
   type:
-    description: Type key of the message.
-    type: string
+    $ref: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/type.yaml
     const: get_config
     default: get_config
   id:

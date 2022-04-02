@@ -5,8 +5,7 @@ type: object
 title: EventMsg
 properties:
   type:
-    description: Type key of the message.
-    type: string
+    $ref: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/type.yaml
     const: event
     default: event
   id:
@@ -46,7 +45,7 @@ definitions:
         type: string
       context:
         description: The context of the event.
-        $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"
+        $ref: ../../rest/response/state.yaml#/definitions/context
       data:
         description: The data of the event.
         type: object
@@ -60,9 +59,9 @@ definitions:
             description: The entity_id of the event.
             type: string
           new_state:
-            $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
+            $ref: ../../rest/response/state.yaml#/definitions/stateData
           old_state:
-            $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
+            $ref: ../../rest/response/state.yaml#/definitions/stateData
   triggerData:
     description: The data of the event.
     type: object
@@ -106,13 +105,13 @@ definitions:
               for:
                 type: string
               from_state:
-                $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
+                $ref: ../../rest/response/state.yaml#/definitions/stateData
               to_state:
-                $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
+                $ref: ../../rest/response/state.yaml#/definitions/stateData
               attribute:
                 type: string
               description:
                 description: The description of the event.
                 type: string
       context:
-        $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"
+        $ref: ../../rest/response/state.yaml#/definitions/context

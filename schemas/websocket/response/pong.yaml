@@ -5,8 +5,7 @@ type: object
 title: PongMsg
 properties:
   type:
-    description: Type key of the message.
-    type: string
+    $ref: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/type.yaml
     const: pong
     default: pong
   id:
