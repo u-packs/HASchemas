@@ -19,10 +19,12 @@ properties:
     description: Name of the service to call.
     type: string
   service_data:
+    title: ServiceData
     description: The data to send with the service call.
     type: object
   target:
     type: object
+    title: Target
     description: Instead of targeting an entity, you can also target an area or device. Or a combination of these.
     properties:
       area_id:
