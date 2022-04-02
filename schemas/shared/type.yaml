@@ -1,0 +1,24 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/type.yaml
+$schema: http://json-schema.org/draft-07/schema#
+title: Type
+description: The type of message.
+type: string
+enum:
+  - auth
+  - auth_ok
+  - auth_invalid
+  - auth_required
+  - event
+  - call_service
+  - ping
+  - pong
+  - result
+  - subscribe_events
+  - subscribe_trigger
+  - unsubscribe_events
+  - validate_config
+  - fire_event
+  - get_config
+  - get_panels
+  - get_services
+  - get_states
