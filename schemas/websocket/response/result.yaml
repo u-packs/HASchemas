@@ -21,6 +21,15 @@ properties:
       - type: object
       - type: array
   error:
+    $ref: "#/definitions/error"
+required:
+  - id
+  - type
+  - success
+additionalProperties: false
+definitions:
+  error:
+    title: Error
     description: The error message of the command.
     type: object
     properties:
@@ -34,8 +43,3 @@ properties:
       - code
       - message
     additionalProperties: false
-required:
-  - id
-  - type
-  - success
-additionalProperties: false

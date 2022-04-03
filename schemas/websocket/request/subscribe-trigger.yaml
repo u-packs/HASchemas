@@ -13,7 +13,16 @@ properties:
     type: integer
     minimum: 0
   trigger:
+    $ref: "#/definitions/trigger"
+required:
+  - id
+  - type
+  - trigger
+additionalProperties: false
+definitions:
+  trigger:
     description: The trigger to subscribe to.
+    title: Trigger
     type: object
     properties:
       platform:
@@ -34,8 +43,3 @@ properties:
       - entity_id
       - from
       - to
-required:
-  - id
-  - type
-  - trigger
-additionalProperties: false

@@ -13,6 +13,7 @@ properties:
     type: integer
     minimum: 0
   event:
+    title: Event
     anyOf:
       - $ref: "#/definitions/eventData"
       - $ref: "#/definitions/triggerData"
@@ -25,6 +26,7 @@ definitions:
   eventData:
     description: The data of the event.
     type: object
+    title: EventData
     additionalProperties: false
     required:
       - event_type
@@ -48,6 +50,7 @@ definitions:
         $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"
       data:
         description: The data of the event.
+        title: EventDataPayload
         type: object
         additionalProperties: false
         required:

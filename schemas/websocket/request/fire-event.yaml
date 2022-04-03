@@ -17,6 +17,7 @@ properties:
     type: string
   event_data:
     description: The data to send with the event.
+    title: EventData
     type: object
 required:
   - id

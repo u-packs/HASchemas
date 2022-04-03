@@ -13,10 +13,13 @@ properties:
     type: integer
     minimum: 0
   trigger:
+    title: Trigger
     type: object
   condition:
+    title: Condition
     type: object
   action:
+    title: Action
     type: object
 required:
   - id
