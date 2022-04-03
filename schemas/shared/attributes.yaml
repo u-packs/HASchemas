@@ -1,0 +1,5 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/attributes.yaml
+$schema: http://json-schema.org/draft-07/schema#
+title: Attributes
+description: The attributes of the event.
+type: object

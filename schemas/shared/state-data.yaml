@@ -24,8 +24,6 @@ properties:
     description: The state of the event.
     type: string
   attributes:
-    description: The attributes of the event.
-    type: object
+    $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/attributes.yaml"
   context:
-    description: The context of the event.
     $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"

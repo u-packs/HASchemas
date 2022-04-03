@@ -22,7 +22,7 @@ additionalProperties: false
 definitions:
   trigger:
     description: The trigger to subscribe to.
-    title: Trigger
+    title: SubscribeTrigger
     type: object
     properties:
       platform:
