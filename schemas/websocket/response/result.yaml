@@ -17,6 +17,7 @@ properties:
     type: boolean
   result:
     description: The result of the command.
+    title: Result
     anyOf:
       - type: object
       - type: array
