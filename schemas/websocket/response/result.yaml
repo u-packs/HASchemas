@@ -18,9 +18,7 @@ properties:
   result:
     description: The result of the command.
     title: Result
-    anyOf:
-      - type: object
-      - type: array
+    type: object
   error:
     $ref: "#/definitions/error"
 required:
