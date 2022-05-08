@@ -25,6 +25,7 @@ required:
   - id
   - type
   - success
+  - result
 additionalProperties: false
 definitions:
   error:
