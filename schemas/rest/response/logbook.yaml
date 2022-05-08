@@ -8,6 +8,7 @@ items:
 definitions:
   logbookEntry:
     type: object
+    title: Logbook Entry
     additionalProperties: false
     required:
       - domain

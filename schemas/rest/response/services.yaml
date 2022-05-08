@@ -5,6 +5,7 @@ title: Services
 type: array
 items:
   type: object
+  title: Service Objects
   additionalProperties: false
   required:
     - domain
@@ -16,6 +17,7 @@ items:
     services:
       description: The services in the domain.
       type: object
+      title: Service Object
       additionalProperties: false
       patternProperties:
         "^.+$":
@@ -25,6 +27,7 @@ items:
             - description
             - fields
           additionalProperties: false
+          title: Service
           properties:
             name:
               description: The name of the service.
@@ -34,11 +37,13 @@ items:
               type: string
             fields:
               type: object
+              title: Fields
               additionalProperties: false
               patternProperties:
                 "^.+$":
                   type: object
                   additionalProperties: false
+                  title: Field
                   required:
                     - description
                     - selector
@@ -53,17 +58,21 @@ items:
                       description: Whether the field is required.
                       type: boolean
                     default:
+                      title: Default
                       description: The default value of the field.
                       type: [string, number, boolean, array, object]
                     example:
+                      title: Example
                       description: An example of the field.
                       type: [string, number, boolean, array, object]
                     selector:
+                      title: Selector
                       description: The selector controls the input UI of the field.
                       type: object
                     advanced:
                       description: Advanced fields are only shown when the advanced mode is enabled for the user.
                       type: boolean
             target:
+              title: Target
               description: The target of the service.
               type: object

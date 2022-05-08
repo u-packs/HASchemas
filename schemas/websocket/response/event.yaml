@@ -2,7 +2,7 @@ $id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/
 $schema: http://json-schema.org/draft-07/schema#
 description: https://developers.home-assistant.io/docs/api/websocket#fire-an-event
 type: object
-title: EventMsg
+title: Event Message
 properties:
   type:
     $ref: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/type.yaml
@@ -26,7 +26,7 @@ definitions:
   eventData:
     description: The data of the event.
     type: object
-    title: EventData
+    title: Event Data
     additionalProperties: false
     required:
       - event_type
@@ -50,7 +50,7 @@ definitions:
         $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"
       data:
         description: The data of the event.
-        title: EventDataPayload
+        title: Event Data Payload
         type: object
         additionalProperties: false
         required:
@@ -67,7 +67,7 @@ definitions:
             $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
   triggerData:
     description: The data of the event.
-    title: TriggerData
+    title: Trigger Data
     type: object
     additionalProperties: false
     required:
@@ -85,7 +85,7 @@ definitions:
           trigger:
             description: The trigger of the event.
             type: object
-            title: EventTrigger
+            title: Event Trigger
             additionalProperties: false
             required:
               - platform

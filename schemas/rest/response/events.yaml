@@ -5,6 +5,7 @@ title: Events
 type: array
 items:
   type: object
+  title: Event
   additionalProperties: false
   properties:
     event:

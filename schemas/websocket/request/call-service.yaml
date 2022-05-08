@@ -2,7 +2,7 @@ $id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/
 $schema: http://json-schema.org/draft-07/schema#
 description: https://developers.home-assistant.io/docs/api/websocket/#calling-a-service
 type: object
-title: CallServiceMsg
+title: Call Service Message
 required:
   - id
   - type
@@ -26,7 +26,7 @@ properties:
     type: string
   service_data:
     description: The data to send with the service call.
-    title: ServiceData
+    title: Service Data
     type: object
   target:
     $ref: "#/definitions/target"

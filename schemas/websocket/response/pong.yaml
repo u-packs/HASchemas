@@ -2,7 +2,7 @@ $id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/
 $schema: http://json-schema.org/draft-07/schema#
 description: https://developers.home-assistant.io/docs/api/websocket/#pings-and-pongs
 type: object
-title: PongMsg
+title: Pong Message
 properties:
   type:
     $ref: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/type.yaml
