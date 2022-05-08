@@ -5,4 +5,4 @@ type: array
 title: States
 items:
   type: object
-  $ref: state.yaml#/definitions/stateData
+  $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"

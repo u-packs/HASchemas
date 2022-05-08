@@ -6,4 +6,4 @@ title: History
 items:
   type: array
   items:
-    $ref: state.yaml#/definitions/stateData
+    $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
