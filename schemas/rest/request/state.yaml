@@ -1,0 +1,21 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/rest/request/state.yaml
+$schema: http://json-schema.org/draft-07/schema#
+description: https://developers.home-assistant.io/docs/api/rest/
+type: object
+title: State
+$ref: "#/definitions/state"
+definitions:
+  state:
+    description: The state of the event.
+    type: object
+    additionalProperties: false
+    required:
+      - attributes
+      - state
+    properties:
+      state:
+        description: The state of the event.
+        type: string
+      attributes:
+        description: The attributes of the event.
+        type: object

@@ -1,0 +1,69 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/rest/response/services.yaml
+$schema: http://json-schema.org/draft-07/schema#
+description: https://developers.home-assistant.io/docs/api/rest/
+title: Services
+type: array
+items:
+  type: object
+  additionalProperties: false
+  required:
+    - domain
+    - services
+  properties:
+    domain:
+      description: The domain containing the services.
+      type: string
+    services:
+      description: The services in the domain.
+      type: object
+      additionalProperties: false
+      patternProperties:
+        "^.+$":
+          type: object
+          required:
+            - name
+            - description
+            - fields
+          additionalProperties: false
+          properties:
+            name:
+              description: The name of the service.
+              type: string
+            description:
+              description: The description of the service.
+              type: string
+            fields:
+              type: object
+              additionalProperties: false
+              patternProperties:
+                "^.+$":
+                  type: object
+                  additionalProperties: false
+                  required:
+                    - description
+                    - selector
+                  properties:
+                    name:
+                      description: The name of the field.
+                      type: string
+                    description:
+                      description: The description of the service.
+                      type: string
+                    required:
+                      description: Whether the field is required.
+                      type: boolean
+                    default:
+                      description: The default value of the field.
+                      type: [string, number, boolean, array, object]
+                    example:
+                      description: An example of the field.
+                      type: [string, number, boolean, array, object]
+                    selector:
+                      description: The selector controls the input UI of the field.
+                      type: object
+                    advanced:
+                      description: Advanced fields are only shown when the advanced mode is enabled for the user.
+                      type: boolean
+            target:
+              description: The target of the service.
+              type: object
