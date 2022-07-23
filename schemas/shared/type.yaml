@@ -5,20 +5,20 @@ description: The type of message.
 type: string
 enum:
   - auth
-  - auth_ok
-  - auth_invalid
-  - auth_required
+  - authOK
+  - authInvalid
+  - authRequired
   - event
-  - call_service
+  - callService
   - ping
   - pong
   - result
-  - subscribe_events
-  - subscribe_trigger
-  - unsubscribe_events
-  - validate_config
-  - fire_event
-  - get_config
-  - get_panels
-  - get_services
-  - get_states
+  - subscribeEvents
+  - subscribeTrigger
+  - unsubscribeEvents
+  - validateConfig
+  - fireEvent
+  - getConfig
+  - getPanels
+  - getServices
+  - getStates
