@@ -33,7 +33,17 @@ definitions:
       message:
         description: The message of the entry.
         type: string
+      icon:
+        description: The icon of the entry.
+        type:
+          - string
+          - "null"
       when:
         description: The time of the entry.
         type: string
         format: date-time
+      state:
+        description: The state of the entry.
+        type:
+          - string
+          - "null"
