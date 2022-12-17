@@ -118,8 +118,12 @@ properties:
     type: string
   country:
     description: Language of the Home Assistant installation.
-    type: string
+    type:
+      - string
+      - "null"
   language:
     default: "en"
     description: Language of the Home Assistant installation.
-    type: string
+    type:
+      - string
+      - "null"
