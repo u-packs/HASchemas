@@ -7,7 +7,7 @@ import yaml from "js-yaml";
 
 const token = process.env.TOKEN;
 const baseUrl = "http://localhost:8123/";
-let ajv;
+let ajv: Ajv;
 
 beforeAll(() => {
 	const schemas = glob
@@ -15,7 +15,7 @@ beforeAll(() => {
 		.map((file) => yaml.load(fs.readFileSync(file, "utf8")));
 
 	ajv = new Ajv({
-		schemas: schemas,
+		schemas: schemas as any,
 		allErrors: true,
 		strictSchema: true,
 		strictNumbers: true,
@@ -38,7 +38,7 @@ const cases = [
 		output: {
 			status_code: 200,
 			schema:
-				"https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/rest/response/message.yaml",
+				"https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/rest/response/base-message.yaml",
 		},
 	},
 	{
@@ -98,7 +98,7 @@ const cases = [
 		output: {
 			status_code: 200,
 			schema:
-				"https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/rest/response/state.yaml",
+				"https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml",
 		},
 	},
 	{
@@ -131,7 +131,7 @@ const cases = [
 		output: {
 			status_code: 200,
 			schema:
-				"https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/rest/response/state.yaml",
+				"https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml",
 		},
 	},
 	{
@@ -146,16 +146,16 @@ const cases = [
 		output: {
 			status_code: 200,
 			schema:
-				"https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/rest/response/message.yaml",
+				"https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/rest/response/base-message.yaml",
 		},
 	},
 ];
 
-test.each(cases)("%s", async (test) => {
+test.each(cases)("Hello $name", async (test) => {
 	const url = baseUrl + test.path;
 	const request_type = test.request_type;
 	const output = test.output;
-	let body = "";
+	let body: Buffer = Buffer.from("");
 
 	if (test.input?.body) {
 		body = fs.readFileSync(test.input.body);
@@ -190,18 +190,26 @@ test.each(cases)("%s", async (test) => {
 			headers: headers,
 		});
 	}
+	else {
+		console.error("Invalid request_type", request_type)
+		return
+	}
 
 	expect(response.status).toBe(output.status_code);
 
 	if (output.schema) {
 		// Load schema from file
 		const validate = ajv.getSchema(output.schema);
+		if (validate === undefined) {
+			console.error("Could not find schema", output.schema)
+			return
+		}
 
 		let body = await response.json();
 		const valid = validate(body);
 
 		if (!valid) {
-			console.error(JSON.stringify(body));
+			console.error(JSON.stringify(body), test.name);
 		}
 		expect(validate.errors).toBe(null);
 		expect(valid).toBe(true);
