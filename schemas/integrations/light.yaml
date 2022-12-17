@@ -1,0 +1,103 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/integrations/light.yaml
+$schema: http://json-schema.org/draft-07/schema#
+title: Light
+description: A light entity.
+type: object
+additionalProperties: false
+required:
+  - entity_id
+properties:
+  entity_id:
+    description: String or list of strings that point at entity_ids of lights. To target all lights, set entity_id to all.
+    type: string
+  transition:
+    description: Number that represents the time (in seconds) the light should take to transition to the new state.
+    type: integer
+  profile:
+    description: String with the name of one of the built-in profiles (relax, energize, concentrate, reading) or one of the custom profiles defined in light_profiles.csv in the current working directory. Light profiles define an xy color, brightness and a transition value (if no transition is desired, set to 0 or leave out the column entirely). If a profile is given, and a brightness is set, then the profile brightness will be overwritten.
+    type: string
+  hs_color:
+    description: A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      type: number
+  xy_color:
+    description: A list containing two floats representing the xy color you want the light to be. Two comma-separated floats that represent the color in XY.
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      type: number
+  rgb_color:
+    description: A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets.
+    type: array
+    minItems: 3
+    maxItems: 3
+    items:
+      type: integer
+      minimum: 0
+      maximum: 255
+  rgbw_color:
+    description: A list containing four integers between 0 and 255 representing the RGBW color you want the light to be. Four comma-separated integers that represent the color in RGBW (red, green, blue, white), within square brackets. This attribute will be ignored by lights which do not support RGBW colors.
+    type: array
+    minItems: 4
+    maxItems: 4
+    items:
+      type: integer
+      minimum: 0
+      maximum: 255
+  rgbww_color:
+    description: A list containing five integers between 0 and 255 representing the RGBWW color you want the light to be. Five comma-separated integers that represent the color in RGBWW (red, green, blue, cold white, warm white), within square brackets. This attribute will be ignored by lights which do not support RGBWW colors.
+    type: array
+    minItems: 5
+    maxItems: 5
+    items:
+      type: integer
+      minimum: 0
+      maximum: 255
+  color_temp_kelvin:
+    description: An integer in Kelvin representing the color temperature you want the light to be.
+    type: integer
+    minimum: 0
+  color_temp:
+    description: Alternatively, you can specify the color temperature in Mireds.
+    type: integer
+  color_name:
+    description: A human-readable string of a color name, such as blue or goldenrod. All CSS3 color names are supported.
+    type: string
+  brightness:
+    description: Integer between 0 and 255 for how bright the light should be, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.
+    type: integer
+    minimum: 0
+    maximum: 255
+  brightness_pct:
+    description: Alternatively, you can specify brightness in percent (a number between 0 and 100), where 0 means the light is off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.
+    type: integer
+    minimum: 0
+    maximum: 100
+  brightness_step:
+    description: Change brightness by an amount. Should be between -255..255.
+    type: integer
+    minimum: -255
+    maximum: 255
+  brightness_step_pct:
+    description: Change brightness by a percentage. Should be between -100..100.
+    type: integer
+    minimum: -100
+    maximum: 100
+  white:
+    description: Set the light to white mode and change its brightness, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light. Note that white does not have a corresponding state attribute, the color_mode state attribute will to white and the brightness state attribute will be set to the requested brightness.
+    type: integer
+    minimum: 0
+    maximum: 255
+  flash:
+    description: Tell light to flash, can be either value short or long.
+    type: string
+    enum:
+      - short
+      - long
+  effect:
+    description: Applies an effect such as colorloop or random.
+    type: string
