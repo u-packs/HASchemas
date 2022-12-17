@@ -116,3 +116,10 @@ properties:
   currency:
     description: Currency of the Home Assistant installation.
     type: string
+  country:
+    description: Language of the Home Assistant installation.
+    type: string
+  language:
+    default: "en"
+    description: Language of the Home Assistant installation.
+    type: string
