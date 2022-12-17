@@ -26,6 +26,7 @@ properties:
   components:
     description: List of components that are included in the Home Assistant configuration.
     type: array
+    additionalItems: false
     items:
       type: string
   config_dir:
@@ -86,16 +87,19 @@ properties:
   whitelist_external_dirs:
     description: List of directories that are whitelisted for access from the Home Assistant installation.
     type: array
+    additionalItems: false
     items:
       type: string
   allowlist_external_urls:
     description: List of URLs that are whitelisted for access from the Home Assistant installation.
     type: array
+    additionalItems: false
     items:
       type: string
   allowlist_external_dirs:
     description: List of directories that are whitelisted for access from the Home Assistant installation.
     type: array
+    additionalItems: false
     items:
       type: string
   config_source:

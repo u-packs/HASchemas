@@ -151,7 +151,7 @@ const cases = [
 	},
 ];
 
-test.each(cases)("Hello $name", async (test) => {
+test.each(cases)("$name", async (test) => {
 	const url = baseUrl + test.path;
 	const request_type = test.request_type;
 	const output = test.output;

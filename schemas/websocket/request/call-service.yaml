@@ -39,16 +39,19 @@ definitions:
       area_id:
         description: The area_id to call the service on.
         type: array
+        additionalItems: false
         items:
           type: string
       device_id:
         description: The device_id to call the service on.
         type: array
+        additionalItems: false
         items:
           type: string
       entity_id:
         description: The entity_id to call the service on.
         type: array
+        additionalItems: false
         items:
           type: string
     additionalProperties: false

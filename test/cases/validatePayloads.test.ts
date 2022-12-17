@@ -42,7 +42,7 @@ const cases = [
 	},
 ];
 
-test.each(cases)("%s", async (test) => {
+test.each(cases)("$name", async (test) => {
 	const data = JSON.parse(fs.readFileSync(test.input).toString());
 
 	// Load schema from file

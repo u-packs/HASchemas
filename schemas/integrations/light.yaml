@@ -21,6 +21,7 @@ properties:
     type: array
     minItems: 2
     maxItems: 2
+    additionalItems: false
     items:
       type: number
   xy_color:
@@ -28,6 +29,7 @@ properties:
     type: array
     minItems: 2
     maxItems: 2
+    additionalItems: false
     items:
       type: number
   rgb_color:
@@ -35,6 +37,7 @@ properties:
     type: array
     minItems: 3
     maxItems: 3
+    additionalItems: false
     items:
       type: integer
       minimum: 0
@@ -44,6 +47,7 @@ properties:
     type: array
     minItems: 4
     maxItems: 4
+    additionalItems: false
     items:
       type: integer
       minimum: 0
@@ -53,6 +57,7 @@ properties:
     type: array
     minItems: 5
     maxItems: 5
+    additionalItems: false
     items:
       type: integer
       minimum: 0

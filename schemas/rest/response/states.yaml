@@ -3,6 +3,7 @@ $schema: http://json-schema.org/draft-07/schema#
 description: https://developers.home-assistant.io/docs/api/rest/
 type: array
 title: States
+additionalItems: false
 items:
   type: object
   $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
