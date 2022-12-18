@@ -2,7 +2,7 @@ $id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/rest/reque
 $schema: http://json-schema.org/draft-07/schema#
 description: https://developers.home-assistant.io/docs/api/rest/
 type: object
-title: State
+title: StateUpdate
 $ref: "#/definitions/state"
 definitions:
   state:
