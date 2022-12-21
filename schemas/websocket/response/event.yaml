@@ -13,6 +13,7 @@ properties:
     type: integer
     minimum: 0
   event:
+    title: "Event"
     type: "#/definitions/event"
 required:
   - id
