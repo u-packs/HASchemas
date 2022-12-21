@@ -14,7 +14,7 @@ properties:
     minimum: 0
   event:
     title: Event
-    type: "#/definitions/trigger"
+    $ref: "#/definitions/trigger"
 required:
   - id
   - type
