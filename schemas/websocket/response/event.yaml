@@ -1,6 +1,6 @@
 $id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/response/event.yaml
 $schema: http://json-schema.org/draft-07/schema#
-description: https://developers.home-assistant.io/docs/api/websocket#fire-an-event
+description: https://developers.home-assistant.io/docs/api/websocket/#subscribe-to-events
 type: object
 title: Event Message
 properties:
@@ -13,18 +13,15 @@ properties:
     type: integer
     minimum: 0
   event:
-    title: Event
-    anyOf:
-      - $ref: "#/definitions/eventData"
-      - $ref: "#/definitions/triggerData"
+    type: "#/definitions/event"
 required:
   - id
   - type
   - event
 additionalProperties: false
 definitions:
-  eventData:
-    description: The data of the event.
+  event:
+    description: The event.
     type: object
     title: Event Data
     additionalProperties: false
@@ -50,7 +47,7 @@ definitions:
         $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"
       data:
         description: The data of the event.
-        title: Event Data Payload
+        title: Event Data
         type: object
         additionalProperties: false
         required:
@@ -65,59 +62,3 @@ definitions:
             $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
           old_state:
             $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
-  triggerData:
-    description: The data of the event.
-    title: Trigger Data
-    type: object
-    additionalProperties: false
-    required:
-      - variables
-      - context
-    properties:
-      variables:
-        description: The variables of the event.
-        type: object
-        title: Variables
-        additionalProperties: false
-        required:
-          - trigger
-        properties:
-          trigger:
-            description: The trigger of the event.
-            type: object
-            title: Event Trigger
-            additionalProperties: false
-            required:
-              - platform
-              - entity_id
-              - id
-              - idx
-              - for
-              - description
-              - attribute
-              - from_state
-              - to_state
-            properties:
-              id:
-                type: string
-              idx:
-                type: string
-              platform:
-                description: The platform of the event.
-                type: string
-              entity_id:
-                description: The entity_id of the event.
-                type: string
-              for:
-                type: string
-              from_state:
-                $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
-              to_state:
-                $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
-              attribute:
-                type: string
-              description:
-                description: The description of the event.
-                type: string
-      context:
-        $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"

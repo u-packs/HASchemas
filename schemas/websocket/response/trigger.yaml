@@ -1,0 +1,79 @@
+$id: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/websocket/response/trigger.yaml
+$schema: http://json-schema.org/draft-07/schema#
+description: https://developers.home-assistant.io/docs/api/websocket/#fire-an-event
+type: object
+title: Trigger Message
+properties:
+  type:
+    $ref: https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/type.yaml
+    const: event
+    default: event
+  id:
+    description: The ID of the response will point at the original ID of this message.
+    type: integer
+    minimum: 0
+  event:
+    title: Event
+    type: "#/definitions/trigger"
+required:
+  - id
+  - type
+  - event
+additionalProperties: false
+definitions:
+  trigger:
+    description: The trigger.
+    title: Trigger
+    type: object
+    additionalProperties: false
+    required:
+      - variables
+      - context
+    properties:
+      variables:
+        description: The variables of the trigger.
+        type: object
+        title: Variables
+        additionalProperties: false
+        required:
+          - trigger
+        properties:
+          trigger:
+            description: The trigger of the trigger.
+            type: object
+            title: Trigger data
+            additionalProperties: false
+            required:
+              - platform
+              - entity_id
+              - id
+              - idx
+              - for
+              - description
+              - attribute
+              - from_state
+              - to_state
+            properties:
+              id:
+                type: string
+              idx:
+                type: string
+              platform:
+                description: The platform of the trigger.
+                type: string
+              entity_id:
+                description: The entity_id of the trigger.
+                type: string
+              for:
+                type: string
+              from_state:
+                $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
+              to_state:
+                $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/state-data.yaml"
+              attribute:
+                type: string
+              description:
+                description: The description of the trigger.
+                type: string
+      context:
+        $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"

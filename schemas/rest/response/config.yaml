@@ -19,8 +19,6 @@ required:
   - config_source
   - safe_mode
   - state
-  - external_url
-  - internal_url
   - currency
 properties:
   components:
@@ -113,10 +111,14 @@ properties:
     type: string
   external_url:
     description: External URL of the Home Assistant installation.
-    type: [string, "null"]
+    type:
+      - string
+      - "null"
   internal_url:
     description: Internal URL of the Home Assistant installation.
-    type: [string, "null"]
+    type:
+      - string
+      - "null"
   currency:
     description: Currency of the Home Assistant installation.
     type: string
