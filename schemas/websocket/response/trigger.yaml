@@ -13,7 +13,7 @@ properties:
     type: integer
     minimum: 0
   event:
-    title: Event
+    title: Trigger
     $ref: "#/definitions/trigger"
 required:
   - id
