@@ -26,5 +26,11 @@ properties:
   attributes:
     description: The attributes of the event.
     type: object
+    dictionaryProp: {
+      'x-custom-type': 'dictionary',
+      'x-custom-dictionary-key': 'string',
+      'x-custom-dictionary-value': 'object',
+      additionalProperties: true
+    }
   context:
     $ref: "https://raw.githubusercontent.com/u-packs/HASchemas/main/schemas/shared/context.yaml"
